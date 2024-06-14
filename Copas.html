@@ -32,17 +32,55 @@
             border-radius: 4px;
             font-size: 14px;
             resize: none;
+            white-space: pre-wrap; /* Ensure white space is preserved */
         }
-        button {
+        .button-group {
+            display: flex;
+            justify-content: flex-start;
+        }
+        button, .menu-button {
             padding: 10px 20px;
-            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-right: 10px;
         }
-        button:active {
+        .copy-button {
+            background-color: #dc3545; /* Red for not copied */
+        }
+        .copy-button.copied {
+            background-color: #28a745; /* Green for copied */
+        }
+        .clear-button {
+            background-color: #ffc107; /* Yellow for clear */
+        }
+        .menu-button {
+            background-color: #007bff; /* Blue for back to menu */
+            display: flex;
+            align-items: center;
+        }
+        .menu-button:active {
             background-color: #0056b3;
+        }
+        a.menu-button {
+            text-decoration: none;
+            display: inline-block;
+        }
+        .menu-button .icon {
+            margin-right: 5px;
+        }
+        .alert {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
         }
     </style>
 </head>
@@ -50,28 +88,70 @@
     <div class="container">
         <h2>Paste your data here:</h2>
         <textarea id="pasteArea" placeholder="Paste your data here..."></textarea>
-        <button onclick="copyToClipboard()">Copy</button>
+        <div class="button-group">
+            <a href="http://www.wrhgoc.site/ShareLinkGOC.html" class="menu-button">
+                <span class="icon">←</span>Back to Menu
+            </a>
+            <button id="clearButton" class="clear-button" onclick="clearText()">Clear Text</button>
+            <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy</button>
+        </div>
     </div>
+    <div id="alert" class="alert">Data copied to clipboard!</div>
 
     <script>
         function copyToClipboard() {
             var pasteArea = document.getElementById("pasteArea");
-            pasteArea.select();
-            pasteArea.setSelectionRange(0, 99999); // For mobile devices
+            var text = pasteArea.value;
 
-            try {
-                document.execCommand("copy");
-                alert("Data copied to clipboard!");
-            } catch (err) {
-                alert("Oops, unable to copy");
+            // Add a blank character after each newline character only if the line is not empty
+            var modifiedText = text.split('\n').map(line => line.trim() === '' ? '\n' : line + '\n ').join('').trim();
+
+            // Remove blank character before specific words
+            modifiedText = modifiedText.replace(/\n\s+(dikirim|berikut)/gi, '\n$1');
+
+            // Copy text using the Clipboard API
+            navigator.clipboard.writeText(modifiedText).then(function() {
+                showAlert();
+                updateCopyButton(true);
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function clearText() {
+            var pasteArea = document.getElementById("pasteArea");
+            pasteArea.value = '';
+            updateCopyButton(false);
+        }
+
+        function showAlert() {
+            var alertBox = document.getElementById("alert");
+            alertBox.style.display = "block";
+            setTimeout(function() {
+                alertBox.style.display = "none";
+            }, 1000); // Hide after 1 second
+        }
+
+        function updateCopyButton(isCopied) {
+            var copyButton = document.getElementById("copyButton");
+            if (isCopied) {
+                copyButton.classList.add("copied");
+            } else {
+                copyButton.classList.remove("copied");
             }
         }
 
-        // Prevent pasting unwanted formatting
+        // Reset button color when new data is pasted
         document.getElementById("pasteArea").addEventListener("paste", function(e) {
             e.preventDefault();
             var text = (e.clipboardData || window.clipboardData).getData('text');
             document.execCommand("insertText", false, text);
+            updateCopyButton(false);
+        });
+
+        // Reset button color when text area content changes
+        document.getElementById("pasteArea").addEventListener("input", function() {
+            updateCopyButton(false);
         });
     </script>
 </body>
