@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paste and Copy Data Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(5, 33, 85, 0.438);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            margin: 50px;
+        }
+        textarea {
+            width: 97.5%;
+            height: 400px; /* Diperbesar dari 200px ke 400px */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            resize: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:active {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Paste your data here:</h2>
+        <textarea id="pasteArea" placeholder="Paste your data here..."></textarea>
+        <button onclick="copyToClipboard()">Copy</button>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            var pasteArea = document.getElementById("pasteArea");
+            pasteArea.select();
+            pasteArea.setSelectionRange(0, 99999); // For mobile devices
+
+            try {
+                document.execCommand("copy");
+                alert("Data copied to clipboard!");
+            } catch (err) {
+                alert("Oops, unable to copy");
+            }
+        }
+
+        // Prevent pasting unwanted formatting
+        document.getElementById("pasteArea").addEventListener("paste", function(e) {
+            e.preventDefault();
+            var text = (e.clipboardData || window.clipboardData).getData('text');
+            document.execCommand("insertText", false, text);
+        });
+    </script>
+</body>
+</html>
