@@ -25,7 +25,7 @@
         }
         textarea {
             width: 97.5%;
-            height: 400px;
+            height: 400px; /* Diperbesar dari 200px ke 400px */
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -53,7 +53,7 @@
             background-color: #28a745; /* Green for copied */
         }
         .clear-button {
-            background-color: #007bff; /* Blue for back to menu */
+            background-color: #007bff; /* Blue for clear text */
         }
         .menu-button {
             background-color: #007bff; /* Blue for back to menu */
@@ -90,10 +90,10 @@
         <textarea id="pasteArea" placeholder="Paste your data here..."></textarea>
         <div class="button-group">
             <a href="http://www.wrhgoc.site/ShareLinkGOC.html" class="menu-button">
-                <span class="icon"></span>Back to Menu
+                <span class="icon">←</span>Back to Menu
             </a>
             <button id="clearButton" class="clear-button" onclick="clearText()">Clear Text</button>
-            <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy</button>
+            <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy.</button>
         </div>
     </div>
     <div id="alert" class="alert">Data copied to clipboard!</div>
@@ -108,6 +108,13 @@
 
             // Remove blank character before specific words
             modifiedText = modifiedText.replace(/\n\s+(dikirim|berikut)/gi, '\n$1');
+
+            // Make the first paragraph bold
+            var paragraphs = modifiedText.split('\n\n');
+            if (paragraphs.length > 0) {
+                paragraphs[0] = '**' + paragraphs[0] + '**';
+            }
+            modifiedText = paragraphs.join('\n\n');
 
             // Copy text using the Clipboard API
             navigator.clipboard.writeText(modifiedText).then(function() {
