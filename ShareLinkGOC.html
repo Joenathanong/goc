@@ -73,13 +73,26 @@
 
 
     <!-- Pencarian -->
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Cari link..."
-      autocomplete="off"
-    />
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari link..."
+          autocomplete="off"
+          style="width: 300px; padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; outline: none;"
+        />
+        <button
+          id="clearBtn"
+          onclick="document.getElementById('searchInput').value = ''; document.querySelectorAll('.link').forEach(link => link.style.display = 'block');"
+          style="padding: 10px 16px; border-radius: 6px; border: none; background-color: #f44336; color: white; font-size: 16px; cursor: pointer;"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
 
+    
     <!-- Daftar Link -->
     <div id="links">
       <a class="link" href="/index.html" data-info="Kembali ke halaman utama">
@@ -163,6 +176,14 @@
           links.forEach(function (link) {
             var text = link.textContent.toLowerCase();
             link.style.display = text.includes(keyword) ? "block" : "none";
+          });
+
+        // 3. Clear Button
+        var clearBtn = document.getElementById("clearBtn");
+        clearBtn.addEventListener("click", function () {
+          searchInput.value = "";
+          links.forEach(function (link) {
+            link.style.display = "block";
           });
         });
       });
