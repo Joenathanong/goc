@@ -13,28 +13,7 @@
     />
     <!-- Core theme CSS -->
     <link rel="stylesheet" href="css/style.css" />
-            <script src="js/script.js"></script>
-
-    <style>
-      
-      #searchInput {
-        width: 80%;
-        max-width: 400px;
-        margin: 10px auto;
-        display: block;
-        padding: 8px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-      }
-
-      #links a {
-        display: block;
-        margin: 5px 0;
-      }
-    </style>
-            <script src="js/script.js"></script>
-
+    <script src="js/script.js"></script>
   </head>
 
   <body>
@@ -70,10 +49,8 @@
 
     <div id="userName">Share Link - FGWH</div>
 
-
-
     <!-- Pencarian -->
-    <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+    <div class="sticky-search-container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
       <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <input
           type="text"
@@ -141,53 +118,55 @@
       <a class="link" href="/Copas.html" data-info="Cleaner Mail Template">
         <i class="">&nbsp;</i>Data Copas Email
       </a>
+
+
+
+
+<a class="link" href="/SJManual.html" data-info="Data Surat Jalan Manual">
+        <i class="">&nbsp;</i>Surat Jalan Manual
+      </a>
       
+      <a class="link" href="/MonitoringKiriman.html" data-info="Data Monitoring pengiriman harian">
+        <i class="">&nbsp;</i>Monitoring Pengiriman
+      </a>
+      
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1uNRqBQrWR6_WywyShfHn7Qx4SQCXOiDA/edit?usp=sharing" target="_blank" data-info="Data Alamat lengkap distributor">
+        <i class="">&nbsp;</i>Alamat Distributor
+      </a>
+      
+      <a class="link" href="/Schedule.html" data-info="Data Jadwal pengiriman harian/mingguan">
+        <i class="">&nbsp;</i>Schedule Pengiriman
+      </a>
+      
+      <a class="link" href="/PrintPO.html" data-info="Data Shipping Preparation Print/Persiapan PO">
+        <i class="">&nbsp;</i>Shipping Preparation
+      </a>
+      
+      <a class="link" href="/PrintDO.html" data-info="Data Cek dan print DO (Delivery Order)">
+        <i class="">&nbsp;</i>Check Print DO
+      </a>
+      
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1wd6AdRJgFcIFs2duopBv8Z_c1WFQHxgxin1MyU01kVg/edit#gid=0" target="_blank" data-info="Data Extensi Tlp. GOC">
+        <i class="">&nbsp;</i>Extensi Tlp. GOC
+      </a>
+      
+      <a class="link" href="https://bit.ly/SHAREFG" target="_blank" data-info="Data Share FG (G-Drive)">
+        <i class="">&nbsp;</i>Data Share FG
+      </a>
+      
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1Yi_XWQ1XdNY1uD36bgfmVRm3TSFLvyhf6_qlGMvZ-QY/edit?usp=sharing" target="_blank" data-info="Dokumen Copy Paste">
+        <i class="">&nbsp;</i>Data CoPas
+      </a>
+      
+      <a class="link" href="/Copas.html" data-info="Cleaner Mail Template">
+        <i class="">&nbsp;</i>Data Copas Email
+      </a>
+
+        
+        
           <div class="note" id="info1" style="display:none;">Info untuk tautan</div>
         
     </div>
 
-
-        <!-- Info Box -->
-        <!-- <div id="info1"></div> -->
-        <!-- <script src="js/script.js"></script> -->
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // 1. Menampilkan data-info saat hover
-        var infoBox = document.getElementById("info1");
-        var links = document.querySelectorAll(".link");
-
-        links.forEach(function (link) {
-          link.addEventListener("mouseover", function () {
-            var infoText = link.getAttribute("data-info");
-            infoBox.innerText = infoText;
-            infoBox.style.display = "block";
-          });
-
-          link.addEventListener("mouseout", function () {
-            infoBox.style.display = "none";
-          });
-        });
-
-        // 2. Pencarian langsung
-        var searchInput = document.getElementById("searchInput");
-        searchInput.addEventListener("input", function () {
-          var keyword = this.value.toLowerCase();
-          links.forEach(function (link) {
-            var text = link.textContent.toLowerCase();
-            link.style.display = text.includes(keyword) ? "block" : "none";
-          });
-        });
-
-        // 3. Clear Button
-        var clearBtn = document.getElementById("clearBtn");
-        clearBtn.addEventListener("click", function () {
-          searchInput.value = "";
-          links.forEach(function (link) {
-            link.style.display = "block";
-          });
-        });
-      });
-    </script>
   </body>
 </html>
