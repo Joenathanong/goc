@@ -119,7 +119,7 @@
       </a>
       
       <a class="link" href="/PrintPO.html" data-info="Data Shipping Preparation Print/Persiapan PO">
-        <i class="">&nbsp;</i>Data Shipping Preparation
+        <i class="">&nbsp;</i>Shipping Preparation
       </a>
       
       <a class="link" href="/PrintDO.html" data-info="Data Cek dan print DO (Delivery Order)">
@@ -177,6 +177,7 @@
             var text = link.textContent.toLowerCase();
             link.style.display = text.includes(keyword) ? "block" : "none";
           });
+        });
 
         // 3. Clear Button
         var clearBtn = document.getElementById("clearBtn");
