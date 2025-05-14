@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FGWH | Share Link</title>
     <!-- Favicon -->
     <link rel="icon" href="image/icon.png" type="image/x-icon" />
     <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
     <!-- Core theme CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+            <script src="js/script.js"></script>
+
+    <style>
+      
+      #searchInput {
+        width: 80%;
+        max-width: 400px;
+        margin: 10px auto;
+        display: block;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      #links a {
+        display: block;
+        margin: 5px 0;
+      }
+    </style>
+            <script src="js/script.js"></script>
+
   </head>
 
   <body>
@@ -22,75 +47,110 @@
     <!-- End of Parallax Pixel Background Animation -->
 
     <a id="profilePicture" href="#popup">
-      <img src="image/goc.png" alt="Profile Picture">
+      <img src="image/goc.png" alt="Profile Picture" />
     </a>
 
     <div class="overlay" id="popup">
       <div class="popup">
         <div class="popup-photo">
           <a href="image/goc.png" target="_blank">
-            <img src="image/goc.png" alt="Profile Picture">
+            <img src="image/goc.png" alt="Profile Picture" />
           </a>
         </div>
         <div class="popup-quote">
           <b>Visi :</b>
-          Menjadi Perusahaan Kosmetik Lima Terbesar di Asia.<br><br>
+          Menjadi Perusahaan Kosmetik Lima Terbesar di Asia.<br /><br />
           <b>Misi :</b>
-          Menyediakan Solusi Kecantikan dan Perawatan kulit terunggul melalui produk – produk yang berkualitas dan terjangkau.
+          Menyediakan Solusi Kecantikan dan Perawatan kulit terunggul melalui
+          produk – produk yang berkualitas dan terjangkau.
         </div>
         <a class="popup-close" onclick="history.back()">&times;</a>
       </div>
     </div>
 
+    <div id="userName">Share Link - FGWH</div>
 
 
-    <div id="userName">
-      <!-- write title here -->
-      Share Link - FGWH
 
-    </div>
+    <!-- Pencarian -->
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Cari link..."
+      autocomplete="off"
+    />
 
-
-    
+    <!-- Daftar Link -->
     <div id="links">
-      <a class="link" href="/index.html" data-info="">
+      <a class="link" href="/index.html" data-info="Kembali ke halaman utama">
         <i class="fa fa-chevron-circle-left">&nbsp;</i>Kembali Ke Halaman Sebelumnya
       </a>
-      <a class="link" href="/SJManual.html">
+      <a class="link" href="/SJManual.html" data-info="Surat Jalan Manual">
         <i class="">&nbsp;</i>Data Surat Jalan Manual
       </a>
-      <a class="link" href="/MonitoringKiriman.html">
+      <a class="link" href="/MonitoringKiriman.html" data-info="Monitoring pengiriman harian">
         <i class="">&nbsp;</i>Data Monitoring Pengiriman
       </a>
-      <a class="link" href="https://docs.google.com/spreadsheets/d/1uNRqBQrWR6_WywyShfHn7Qx4SQCXOiDA/edit?usp=sharing&ouid=108396472802191472314&rtpof=true&sd=true&utm_medium=social&utm_source=heylink.me" target="_blank">
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1uNRqBQrWR6_WywyShfHn7Qx4SQCXOiDA/edit?usp=sharing" target="_blank" data-info="Alamat lengkap distributor">
         <i class="">&nbsp;</i>Data Alamat Distributor
       </a>
-      <a class="link" href="/Schedule.html">
+      <a class="link" href="/Schedule.html" data-info="Jadwal pengiriman harian/mingguan">
         <i class="">&nbsp;</i>Data Schedule Pengiriman
       </a>
-      <a class="link" href="/PrintPO.html">
+      <a class="link" href="/PrintPO.html" data-info="Persiapan & Print PO">
         <i class="">&nbsp;</i>Data Print/Persiapan PO
       </a>
-      <a class="link" href="/PrintDO.html">
+      <a class="link" href="/PrintDO.html" data-info="Cek dan print DO (Delivery Order)">
         <i class="">&nbsp;</i>Data Check Print DO
       </a>
-      <a class="link" href="https://docs.google.com/spreadsheets/d/1wd6AdRJgFcIFs2duopBv8Z_c1WFQHxgxin1MyU01kVg/edit#gid=0?utm_medium=social&utm_source=heylink.me" target="_blank">
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1wd6AdRJgFcIFs2duopBv8Z_c1WFQHxgxin1MyU01kVg/edit#gid=0" target="_blank" data-info="Data External GOC">
         <i class="">&nbsp;</i>Data Ext. GOC
       </a>
-      <a class="link" href="https://bit.ly/SHAREFG?utm_medium=social&utm_source=heylink.me" target="_blank">
+      <a class="link" href="https://bit.ly/SHAREFG" target="_blank" data-info="Share link FG ke sosial media">
         <i class="">&nbsp;</i>Data Share FG
       </a>
-      <a class="link" href="https://docs.google.com/spreadsheets/d/1Yi_XWQ1XdNY1uD36bgfmVRm3TSFLvyhf6_qlGMvZ-QY/edit?usp=sharing&utm_medium=social&utm_source=heylink.me" target="_blank">
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1Yi_XWQ1XdNY1uD36bgfmVRm3TSFLvyhf6_qlGMvZ-QY/edit?usp=sharing" target="_blank" data-info="Dokumen copy paste rutin">
         <i class="">&nbsp;</i>Data Copy Paste
       </a>
-      <a class="link" href="/Copas.html">
+      <a class="link" href="/Copas.html" data-info="Data email siap kirim">
         <i class="">&nbsp;</i>Data Copas Email
       </a>
+            <div class="note" id="info1" style="display:none;">Info untuk tautan</div>
     </div>
 
 
-    <!-- <div id="hashtag">
-      #BeHappy❤
-    </div> -->
+        <!-- Info Box -->
+        <!-- <div id="info1"></div> -->
+        <!-- <script src="js/script.js"></script> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Menampilkan data-info saat hover
+        var infoBox = document.getElementById("info1");
+        var links = document.querySelectorAll(".link");
+
+        links.forEach(function (link) {
+          link.addEventListener("mouseover", function () {
+            var infoText = link.getAttribute("data-info");
+            infoBox.innerText = infoText;
+            infoBox.style.display = "block";
+          });
+
+          link.addEventListener("mouseout", function () {
+            infoBox.style.display = "none";
+          });
+        });
+
+        // 2. Pencarian langsung
+        var searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", function () {
+          var keyword = this.value.toLowerCase();
+          links.forEach(function (link) {
+            var text = link.textContent.toLowerCase();
+            link.style.display = text.includes(keyword) ? "block" : "none";
+          });
+        });
+      });
+    </script>
   </body>
 </html>
