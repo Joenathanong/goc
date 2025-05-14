@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Core theme CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
   </head>
 
   <body>
@@ -51,6 +52,25 @@
     </div>
 
 
+    <div class="sticky-search-container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari link..."
+          autocomplete="off"
+          style="width: 300px; padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; outline: none;"
+        />
+        <button
+          id="clearBtn"
+          onclick="document.getElementById('searchInput').value = ''; document.querySelectorAll('.link').forEach(link => link.style.display = 'block');"
+          style="padding: 10px 16px; border-radius: 6px; border: none; background-color: #f44336; color: white; font-size: 16px; cursor: pointer;"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+
     
     <div id="links">
       <a class="link" href="/index.html" data-info="">
@@ -68,16 +88,20 @@
       <a class="link" href="/SJManualFG.html" data-info="Data Surat Jalan Manual">
         <i class="">&nbsp;</i>Data Surat Jalan Manual
       </a>
-      <a class="link" href="https://docs.google.com/spreadsheets/d/1wd6AdRJgFcIFs2duopBv8Z_c1WFQHxgxin1MyU01kVg/edit#gid=0?utm_medium=social&utm_source=heylink.me" data-info="Data Extensi Telephone GOC (GS & HO)" target="_blank">
-        <i class="">&nbsp;</i>Data Ext. GOC
+      <a class="link" href="#" target="_blank" data-info="Data Stock Yang Ada Di Warehouse">
+        <i class="">&nbsp;</i>Update Stock
+      </a>
+      <a class="link" href="#" target="_blank" data-info="Data Realisasi Pengiriman (Data PPIC)">
+        <i class="">&nbsp;</i>Realisasi Pengiriman
+      </a>
+      <a class="link" href="#" target="_blank" data-info="Data Rekap DO Claim">
+        <i class="">&nbsp;</i>Rekap DO Claim
+      </a>
+      <a class="link" href="#" target="_blank" data-info="Data Monitoring Realisasi SO Claim / Promo MKT">
+        <i class="">&nbsp;</i>Monitoring SO Claim / MKT
       </a>
       <div class="note" id="info1" style="display:none;">Info untuk tautan</div>
     </div>
 
-    <script src="js/script.js"></script>
-
-    <!-- <div id="hashtag">
-      #BeHappy❤
-    </div> -->
   </body>
 </html>
