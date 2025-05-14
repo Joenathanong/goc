@@ -23,6 +23,22 @@ body {
     position: relative;
 }
 
+#searchInput {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px auto;
+    display: block;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  #links a {
+    display: block;
+    margin: 5px 0;
+  }
+
 #info1 {
     color: rgb(255, 255, 255); /* Mengubah warna teks menjadi merah */
     text-align: left; /* Memposisikan teks ke kanan */
@@ -61,6 +77,39 @@ body {
     margin: 27px auto;
 }
 
+
+
+.sticky-search-container {
+    position: sticky;
+    top: 0; /* Jarak dari atas viewport */
+    z-index: 100; /* Pastikan muncul di atas konten lain */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    /* background: white; Latar belakang solid */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan untuk efek "mengambang" */
+    margin-bottom: 10px; /* Jarak dengan konten di bawahnya */
+  }
+  
+  .sticky-search-container input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .sticky-search-container button {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
 .link {
     position: relative;
     background-color: transparent;
@@ -69,7 +118,9 @@ body {
     border-radius: 10px;
     font-size: 1rem;
     text-align: center;
+    padding-top: 20px;
     display: block;
+    Margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
