@@ -1,25 +1,47 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Ambil elemen info
-    var infoBox = document.getElementById('info1');
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Menampilkan data-info saat hover
+    var infoBox = document.getElementById("info1");
+    var links = document.querySelectorAll(".link");
 
-    // Ambil semua tautan dengan class "link"
-    var links = document.querySelectorAll('.link');
-
-    // Loop melalui setiap tautan
     links.forEach(function(link) {
-        // Ketika kursor mengarah ke tautan
-        link.addEventListener('mouseover', function() {
-            // Ambil informasi dari atribut data-info
-            var infoText = link.getAttribute('data-info');
-            // Tampilkan informasi di elemen info
-            infoBox.innerText = infoText;
-            infoBox.style.display = 'block';
+        link.addEventListener("mouseover", function() {
+            var infoText = this.getAttribute("data-info");
+            infoBox.textContent = infoText;
+            infoBox.style.display = "block";
         });
 
-        // Ketika kursor meninggalkan tautan
-        link.addEventListener('mouseout', function() {
-            // Sembunyikan informasi
-            infoBox.style.display = 'none';
+        link.addEventListener("mouseout", function() {
+            infoBox.style.display = "none";
         });
+    });
+
+    // 2. Pencarian langsung
+    var searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", function() {
+        var keyword = this.value.toLowerCase();
+        var visibleLinks = 0;
+        
+        links.forEach(function(link) {
+            var text = link.textContent.toLowerCase() || link.innerText.toLowerCase();
+            if (text.includes(keyword)) {
+                link.style.display = "block";
+                visibleLinks++;
+            } else {
+                link.style.display = "none";
+            }
+        });
+
+        // Optional: Tampilkan pesan jika tidak ada hasil
+        var noResults = document.getElementById("noResults");
+        if (visibleLinks === 0 && keyword.length > 0) {
+            if (!noResults) {
+                noResults = document.createElement("div");
+                noResults.id = "noResults";
+                noResults.textContent = "Tidak ditemukan hasil untuk '" + keyword + "'";
+                document.getElementById("links").appendChild(noResults);
+            }
+        } else if (noResults) {
+            noResults.remove();
+        }
     });
 });
