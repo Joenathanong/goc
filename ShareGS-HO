@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FGWH | Share Link</title>
+    <!-- Favicon -->
+    <link rel="icon" href="image/icon.png" type="image/x-icon" />
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <!-- Core theme CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <!-- Parallax Pixel Background Animation -->
+    <section class="animated-background">
+      <div id="stars1"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+    </section>
+    <!-- End of Parallax Pixel Background Animation -->
+
+    <a id="profilePicture" href="#popup">
+      <img src="image/goc.png" alt="Profile Picture" />
+    </a>
+
+    <div class="overlay" id="popup">
+      <div class="popup">
+        <div class="popup-photo">
+          <a href="image/goc.png" target="_blank">
+            <img src="image/goc.png" alt="Profile Picture" />
+          </a>
+        </div>
+        <div class="popup-quote">
+          <b>Visi :</b>
+          Menjadi Perusahaan Kosmetik Lima Terbesar di Asia.<br /><br />
+          <b>Misi :</b>
+          Menyediakan Solusi Kecantikan dan Perawatan kulit terunggul melalui
+          produk – produk yang berkualitas dan terjangkau.
+        </div>
+        <a class="popup-close" onclick="history.back()">&times;</a>
+      </div>
+    </div>
+
+    <div id="userName">Share Link - GS & HO</div>
+
+    <!-- Pencarian -->
+    <div class="sticky-search-container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder=" 🔍 Cari link..."
+          autocomplete="off"
+          style="width: 300px; padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; outline: none;"
+        />
+        <button
+          id="clearBtn"
+          onclick="document.getElementById('searchInput').value = ''; document.querySelectorAll('.link').forEach(link => link.style.display = 'block');"
+          style="padding: 10px 16px; border-radius: 6px; border: none; background-color: #f44336; color: white; font-size: 16px; cursor: pointer;"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+
+    
+    <!-- Daftar Link -->
+    <div id="links">
+      <a class="link" href="/index.html" data-info="Kembali ke halaman utama">
+        <i class="fa fa-chevron-circle-left">&nbsp;</i>Kembali Ke Halaman Sebelumnya
+      
+      <a class="link" href="https://docs.google.com/spreadsheets/d/1TgCuXf7BzLwpRTYwiEXKi849ZPg5E_rFaYTlwMf5ww8/edit?gid=0#gid=0" target="_blank" data-info="Data Monitoring PO-STO">
+        <i class="">&nbsp;</i>Monitoring PO-STO
+      </a>  
+        
+          <div class="note" id="info1">⠀</div>
+        
+    </div>
+
+  </body>
+</html>
