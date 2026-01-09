@@ -1,3 +1,57 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const logo = document.getElementById("profilePicture");
+  let clickCount = 0;
+  let clickTimer = null;
+  const SECRET_TEXT = "H38*IdR!dRep";
+
+  logo.addEventListener("click", function () {
+    clickCount++;
+
+    // reset timer setiap klik
+    if (clickTimer) clearTimeout(clickTimer);
+
+    clickTimer = setTimeout(() => {
+      clickCount = 0;
+    }, 600); // 600ms = batas "cepat"
+
+    if (clickCount === 3) {
+      copyToClipboard(SECRET_TEXT);
+      clickCount = 0;
+    }
+  });
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      console.log("Copied to clipboard:", text);
+      // Optional: tampilkan notifikasi kecil
+      showToast("Secret code copied!");
+    }).catch(err => {
+      console.error("Failed to copy:", err);
+    });
+  }
+
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.innerText = message;
+    toast.style.position = "fixed";
+    toast.style.bottom = "20px";
+    toast.style.right = "20px";
+    toast.style.background = "rgba(0,0,0,0.7)";
+    toast.style.color = "#fff";
+    toast.style.padding = "10px 16px";
+    toast.style.borderRadius = "8px";
+    toast.style.fontSize = "14px";
+    toast.style.zIndex = "9999";
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 1500);
+  }
+});
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const infoBox = document.getElementById("info1");
     const links = document.querySelectorAll(".link");
