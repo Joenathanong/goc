@@ -113,7 +113,6 @@ function formatDateTimeIndonesia(dateString) {
 
 // Home button function
 function goToHome() {
-    clearFilters();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     showNotification('Kembali ke menu utama');
 }
@@ -676,6 +675,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+function goToHome() {
+    window.location.href = "https://jntn.site/ShareFGWH.html";
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
@@ -687,4 +690,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLiveFilters();
     fetchData();
     setInterval(fetchData, 300000);
+
 });
